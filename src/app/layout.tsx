@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import './globals.css'
-import Link from 'next/link'
-import { Control } from './Control';
+import Sidebar from './components/Sidebar';
 
 export const metadata: Metadata = {
   title: 'WEB',
@@ -19,24 +18,14 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const response = await fetch(process.env.NEXT_PUBLIC_API_URL + 'topics', {
-    cache: 'no-store',
-  })
-  const topics = await response.json();
 
   return (
     <html>
-      <body>
-        <h1><Link href="/">WEB</Link></h1>
-        <ol>
-          {topics.map((topic: Topic) => (
-            <li key={topic.id}>
-              <Link href={`/read/${topic.id}`}>{topic.title}</Link>
-            </li>
-          ))}
-        </ol>
-        {children}
-        <Control />
+      <body style={{ display: 'flex' }}>
+        <Sidebar></Sidebar>
+        <main style={{ flexGrow: 1, padding: '20px' }}>
+          {children}
+        </main>
       </body>
     </html>
   )

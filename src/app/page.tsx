@@ -1,9 +1,10 @@
-
 export default function Page() {
   return (
     <>
-      <h1>Hello, Next.js!</h1>
-      <img src="/ARA.png" width={"300px"} height={"300px"} />
+      <div style={{ display: 'flex' }}>
+        메인페이지 임
+
+      </div>
     </>
   )
 }

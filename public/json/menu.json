@@ -1,0 +1,14 @@
+[
+  {
+    "title": "라디오 버튼",
+    "fieldName": "RADIOFIELD"
+  },
+  {
+    "title": "체크박스",
+    "fieldName": "CHECKBOXFIELD"
+  },
+  {
+    "title": "인풋",
+    "fieldName": "INPUTFIELD"
+  }
+]
