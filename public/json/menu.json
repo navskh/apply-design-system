@@ -1,14 +1,24 @@
-[
-  {
-    "title": "라디오 버튼",
-    "fieldName": "RADIOFIELD"
-  },
-  {
-    "title": "체크박스",
-    "fieldName": "CHECKBOXFIELD"
-  },
-  {
-    "title": "인풋",
-    "fieldName": "INPUTFIELD"
-  }
-]
+{
+  "Field": [
+    {
+      "title": "텍스트",
+      "fieldName": "TEXTFIELD"
+    },
+    {
+      "title": "텍스트 에어리어",
+      "fieldName": "TEXTAREAFIELD"
+    },
+    {
+      "title": "라디오 버튼",
+      "fieldName": "RADIOFIELD"
+    },
+    {
+      "title": "체크박스",
+      "fieldName": "CHECKBOXFIELD"
+    },
+    {
+      "title": "인풋",
+      "fieldName": "INPUTFIELD"
+    }
+  ]
+}
