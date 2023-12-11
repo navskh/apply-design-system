@@ -1,31 +1,50 @@
+"use client";
+import React, { useEffect } from 'react';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/atom-one-dark.css'; // 스타일 선택
+import beautify from 'js-beautify';
+
 export default function CheckboxField() {
+  const sampleHTML = `
+  <div class="agree_check">
+  <span class="cell_box1">
+      <span class="cell_check1">
+          <input type="checkbox" id="c00" name="" />
+          <label for="c00">선택지0</label>
+      </span>
+      <span class="cell_check1">
+          <input type="checkbox" id="c01" name="" />
+          <label for="c01">선택지1</label>
+      </span>
+      <span class="cell_check1">
+          <input type="checkbox" id="c02" name="" />
+          <label for="c02">선택지2</label>
+      </span>
+      <span class="cell_check1">
+          <input type="checkbox" id="c03" name="" />
+          <label for="c03">선택지3</label>
+      </span>
+      <span class="cell_check1">
+          <input type="checkbox" id="c04" name="" />
+          <label for="c04">선택지4</label>
+      </span>
+  </span>
+  </div>`
+
+  const formattedHtmlCode = beautify.html(sampleHTML);
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+
+
   return (
     <>
       <h1 style={{ fontSize: '23px', fontWeight: 'bold', marginBottom: '20px' }}>체크박스 필드(CHECKBOXFIELD)</h1>
-      <div className="agree_check">
-        <span className="cell_box1">
-          <span className="cell_check1">
-            <input type="checkbox" id="c00" name="" />
-            <label htmlFor="c00">선택지0</label>
-          </span>
-          <span className="cell_check1">
-            <input type="checkbox" id="c01" name="" />
-            <label htmlFor="c01">선택지1</label>
-          </span>
-          <span className="cell_check1">
-            <input type="checkbox" id="c02" name="" />
-            <label htmlFor="c02">선택지2</label>
-          </span>
-          <span className="cell_check1">
-            <input type="checkbox" id="c03" name="" />
-            <label htmlFor="c03">선택지3</label>
-          </span>
-          <span className="cell_check1">
-            <input type="checkbox" id="c04" name="" />
-            <label htmlFor="c04">선택지4</label>
-          </span>
-        </span>
-      </div>
+      <div dangerouslySetInnerHTML={{ __html: sampleHTML }}></div>
+      <pre>
+        <code className="html">{formattedHtmlCode}</code>
+      </pre>
     </>
   )
 }

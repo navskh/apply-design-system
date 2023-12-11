@@ -1,35 +1,51 @@
-import React from 'react';
+"use client";
+import React, { useEffect } from 'react';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/atom-one-dark.css'; // 스타일 선택
+import beautify from 'js-beautify';
 
 export default function RadioField() {
+  const sampleHTML = `
+  <div class="form_cell">
+      <h2 class="heading2">전형구분<em>*</em></h2>
+      <div class="cell_group">
+          <span class="cell_box radio_col2" style={{ cursor: "pointer" }} />
+          <span class="cell_radio1 dim">
+              <input type="radio" id="r1" name="rr" />
+              <label htmlFor="r1">일반편입학(3학년)</label>
+          </span>
+          <span class="cell_radio1">
+              <input type="radio" id="r2" name="rr" />
+              <label htmlFor="r2">일반편입학(3학년)</label>
+          </span>
+          <span class="cell_radio1">
+              <input type="radio" id="r3" name="rr" disabled />
+              <label htmlFor="r3">일반편입학(3학년)</label>
+          </span>
+          <span class="cell_radio1">
+              <input type="radio" id="r4" name="rr" />
+              <label htmlFor="r4">일반편입학(3학년)</label>
+          </span>
+          <span class="cell_radio1">
+              <input type="radio" id="r5" name="rr" />
+              <label htmlFor="r5">사회통합전형</label>
+          </span>
+      </div>
+  </div>`
+
+  const formattedHtmlCode = beautify.html(sampleHTML);
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+
   return (
     <>
       <h1 style={{ fontSize: '23px', fontWeight: 'bold', marginBottom: '20px' }}>라디오필드(RADIOFIELD)</h1>
-      <div className="form_cell">
-        <h2 className="heading2">전형구분<em>*</em></h2>
-        <div className="cell_group">
-          <span className="cell_box radio_col2" style={{ cursor: "pointer" }} />
-          <span className="cell_radio1 dim">
-            <input type="radio" id="r1" name="rr" />
-            <label htmlFor="r1">일반편입학(3학년)</label>
-          </span>
-          <span className="cell_radio1">
-            <input type="radio" id="r2" name="rr" />
-            <label htmlFor="r2">일반편입학(3학년)</label>
-          </span>
-          <span className="cell_radio1">
-            <input type="radio" id="r3" name="rr" disabled />
-            <label htmlFor="r3">일반편입학(3학년)</label>
-          </span>
-          <span className="cell_radio1">
-            <input type="radio" id="r4" name="rr" />
-            <label htmlFor="r4">일반편입학(3학년)</label>
-          </span>
-          <span className="cell_radio1">
-            <label htmlFor="r5">사회통합전형</label>
-            <input type="radio" id="r5" name="rr" />
-          </span>
-        </div>
-      </div>
+      <div dangerouslySetInnerHTML={{ __html: sampleHTML }}></div>
+      <pre>
+        <code className="html">{formattedHtmlCode}</code>
+      </pre>
     </>
   )
 }

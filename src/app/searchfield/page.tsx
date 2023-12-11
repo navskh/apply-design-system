@@ -1,79 +1,97 @@
 // @ts-nocheck
+"use client";
+import React, { useEffect } from 'react';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/atom-one-dark.css'; // 스타일 선택
+import beautify from 'js-beautify';
+
 export default function SearchField() {
-  return (
-    <>
-      <h1 style={{ fontSize: '23px', fontWeight: 'bold', marginBottom: '20px' }}>검색필드(SEARCHFIELD)</h1>
-      <h2 className="heading2">지망학과 - 목록형<em>*</em></h2>
-      <div className="cell_group">
-        <span className="cell_box">
-          <span className="cell_search" type="ul" style={{ cursor: "pointer" }}>
+  const sampleHTML =
+    `<h2 class="heading2">지망학과 - 목록형<em>*</em></h2>
+      <div class="cell_group">
+        <span class="cell_box">
+          <span class="cell_search" type="ul" style="cursor:pointer">
             <input type="text" id="" placeholder="학과를 검색해 주세요." readOnly />
-            <a className="btn_search">검색</a>
+            <a class="btn_search">검색</a>
           </span>
-          <p className="cell_helper1">지원학과명을 확인해 주세요.</p>
-          <p className="cell_helper1 warning">지원학과명을 확인해 주세요.</p>
+          <p class="cell_helper1">지원학과명을 확인해 주세요.</p>
+          <p class="cell_helper1 warning">지원학과명을 확인해 주세요.</p>
         </span>
       </div>
-      <div className="layer search1" type="ul" style={{ display: "none" }}>
-        <div className="layer_header">
-          <p className="heading5">대학 검색</p>
+      <div class="layer search1" type="ul" style="display:none">
+        <div class="layer_header">
+          <p class="heading5">대학 검색</p>
         </div>
-        <div className="layer_cont">
-          <span className="search_box">
-            <span className="cell_search">
+        <div class="layer_cont">
+          <span class="search_box">
+            <span class="cell_search">
               <input type="text" id="" placeholder="대학명을 입력해 주세요." />
-              <a className="btn_search">검색</a>
+              <a class="btn_search">검색</a>
             </span>
           </span>
-          <div className="search_result">
-            <ul className="list_search1">
+          <div class="search_result">
+            <ul class="list_search1">
               <li>
                 <a>
-                  <span className="title">
+                  <span class="title">
                     <strong>정보통신소프트웨어공학과</strong>
                   </span>
                 </a>
               </li>
               <li>
                 <a>
-                  <span className="title">
+                  <span class="title">
                     <strong>컴퓨터공학과</strong>
                   </span>
                 </a>
               </li>
               <li>
                 <a>
-                  <span className="title">
+                  <span class="title">
                     <strong>게임공학과</strong>
                   </span>
                 </a>
               </li>
               <li>
                 <a>
-                  <span className="title">
+                  <span class="title">
                     <strong>자동화설계전공</strong>
                   </span>
                 </a>
               </li>
               <li>
                 <a>
-                  <span className="title">
+                  <span class="title">
                     <strong>정보통신소프트웨어공학과</strong>
                   </span>
                 </a>
               </li>
             </ul>
           </div>
-          <ul className="list_dot2">
+          <ul class="list_dot2">
             <li>검색 결과에서 해당 학과 또는 전공을 선택해 주세요.</li>
             <li>원하는 대학명이 없는 경우 직접입력으로 등록해 주세요.</li>
           </ul>
         </div>
-        <div className="layer_footer">
+        <div class="layer_footer">
 
         </div>
-        <a className="close" style={{ cursor: "pointer" }}>닫기</a>
-      </div>
+        <a class="close" style={{ cursor: "pointer" }}>닫기</a>
+      </div>`
+
+  const formattedHtmlCode = beautify.html(sampleHTML);
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+
+  return (
+    <>
+      <h1 style={{ fontSize: '23px', fontWeight: 'bold', marginBottom: '20px' }}>검색필드(SEARCHFIELD)</h1>
+      <div dangerouslySetInnerHTML={{ __html: sampleHTML }}></div>
+      <pre>
+        <code class="html">{formattedHtmlCode}</code>
+      </pre>
     </>
   )
 }

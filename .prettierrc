@@ -4,7 +4,10 @@
     "trailingComma": "all",
     "arrowParens": "avoid",
     "endOfLine": "auto",
-    "htmlWhitespaceSensitivity": "strict",
     "tabWidth": 2,
-    "printWidth": 80
+    "printWidth": 120,
+    "singleAttributePerLine": false,
+    "bracketSpacing": true,
+    "parser": "babel",
+    "proseWrap": "preserve"
 }
