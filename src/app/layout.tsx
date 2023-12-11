@@ -4,8 +4,8 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 
 export const metadata: Metadata = {
-  title: 'WEB',
-  description: 'Hello, Next.js!',
+  title: 'ADS (ApplyDesignSystem)',
+  description: 'Apply Design System',
 }
 
 interface Topic {
