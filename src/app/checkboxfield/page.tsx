@@ -1,8 +1,9 @@
-"use client";
+'use client';
 import React, { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; // 스타일 선택
 import beautify from 'js-beautify';
+import styles from '../layout.module.css';
 
 export default function CheckboxField() {
   const sampleHTML = `
@@ -29,7 +30,7 @@ export default function CheckboxField() {
           <label for="c04">선택지4</label>
       </span>
   </span>
-  </div>`
+  </div>`;
 
   const formattedHtmlCode = beautify.html(sampleHTML);
 
@@ -37,14 +38,13 @@ export default function CheckboxField() {
     hljs.highlightAll();
   }, []);
 
-
   return (
     <>
-      <h1 style={{ fontSize: '23px', fontWeight: 'bold', marginBottom: '20px' }}>체크박스 필드(CHECKBOXFIELD)</h1>
+      <h1 className={styles.title}>체크박스 (CheckboxField)</h1>
       <div dangerouslySetInnerHTML={{ __html: sampleHTML }}></div>
       <pre>
         <code className="html">{formattedHtmlCode}</code>
       </pre>
     </>
-  )
+  );
 }

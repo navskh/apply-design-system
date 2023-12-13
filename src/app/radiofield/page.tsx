@@ -1,8 +1,9 @@
-"use client";
+'use client';
 import React, { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; // 스타일 선택
 import beautify from 'js-beautify';
+import styles from '../layout.module.css';
 
 export default function RadioField() {
   const sampleHTML = `
@@ -31,7 +32,7 @@ export default function RadioField() {
               <label for="r5">사회통합전형</label>
           </span>
       </div>
-  </div>`
+  </div>`;
 
   const formattedHtmlCode = beautify.html(sampleHTML);
 
@@ -41,11 +42,11 @@ export default function RadioField() {
 
   return (
     <>
-      <h1 style={{ fontSize: '23px', fontWeight: 'bold', marginBottom: '20px' }}>라디오필드(RADIOFIELD)</h1>
+      <h1 className={styles.title}>라디오 (RadioField)</h1>
       <div dangerouslySetInnerHTML={{ __html: sampleHTML }}></div>
       <pre>
         <code className="html">{formattedHtmlCode}</code>
       </pre>
     </>
-  )
+  );
 }

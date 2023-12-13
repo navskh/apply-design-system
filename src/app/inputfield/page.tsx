@@ -1,9 +1,10 @@
 // @ts-nocheck
-"use client";
+'use client';
 import React, { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; // 스타일 선택
 import beautify from 'js-beautify';
+import styles from '../layout.module.css';
 
 export default function InputField() {
   const sampleHTML = `
@@ -17,7 +18,7 @@ export default function InputField() {
             잘못된 전화번호입니다.
           </p>
         </span>
-      </div>`
+      </div>`;
 
   const formattedHtmlCode = beautify.html(sampleHTML);
 
@@ -26,11 +27,11 @@ export default function InputField() {
   }, []);
   return (
     <>
-      <h1 style={{ fontSize: '23px', fontWeight: 'bold', marginBottom: '20px' }}>단일텍스트 필드(INPUTFIELD)</h1>
+      <h1 className={styles.title}>인풋 (InputField)</h1>
       <div dangerouslySetInnerHTML={{ __html: sampleHTML }}></div>
       <pre>
         <code class="html">{formattedHtmlCode}</code>
       </pre>
     </>
-  )
+  );
 }

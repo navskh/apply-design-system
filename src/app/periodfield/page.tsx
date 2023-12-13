@@ -1,9 +1,10 @@
 // @ts-nocheck
-"use client";
+'use client';
 import React, { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; // 스타일 선택
 import beautify from 'js-beautify';
+import styles from '../layout.module.css';
 
 export default function PeriodField() {
   const sampleHTML = `
@@ -13,8 +14,7 @@ export default function PeriodField() {
           <input type="text" class="input" maxLength="8" placeholder="입학일자를 입력해 주세요." />
       </span>
       <p class="cell_helper1 wrong" style={{ display: "none" }}>날짜를 정확히 입력해주세요.</p>
-  </span>`
-
+  </span>`;
 
   const formattedHtmlCode = beautify.html(sampleHTML);
 
@@ -24,11 +24,11 @@ export default function PeriodField() {
 
   return (
     <>
-      <h1 style={{ fontSize: '23px', fontWeight: 'bold', marginBottom: '20px' }}>기간필드(PERIODFIELD)</h1>
+      <h1 className={styles.title}>기간 (PeriodField)</h1>
       <div dangerouslySetInnerHTML={{ __html: sampleHTML }}></div>
       <pre>
         <code class="html">{formattedHtmlCode}</code>
       </pre>
     </>
-  )
+  );
 }

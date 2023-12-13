@@ -1,36 +1,35 @@
-import { Metadata } from 'next'
-import './globals.css'
+import { Metadata } from 'next';
+import './globals.css';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import styles from './layout.module.css';
+
+config.autoAddCss = false;
 
 export const metadata: Metadata = {
   title: 'ADS (ApplyDesignSystem)',
   description: 'Apply Design System',
-}
+};
 
-interface Topic {
-  id: number;
-  title: string;
-  body: string;
-}
+// interface Topic {
+//   id: number;
+//   title: string;
+//   body: string;
+// }
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html>
-      <body style={{ display: 'flex', flexDirection: 'column', }}>
+      <body className={styles.bodyContainer}>
         <Header />
-        <div style={{ display: 'flex' }}>
-          <Sidebar></Sidebar>
-          <main style={{ flexGrow: 1, padding: '20px' }}>
-            {children}
-          </main>
+        <div className={styles.container}>
+          <Sidebar />
+          <div className={styles.main}>
+            <main className={styles.contents}>{children}</main>
+          </div>
         </div>
       </body>
     </html>
-  )
+  );
 }

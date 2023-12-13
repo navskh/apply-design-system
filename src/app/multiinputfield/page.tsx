@@ -1,9 +1,10 @@
 // @ts-nocheck
-"use client";
+'use client';
 import React, { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; // 스타일 선택
 import beautify from 'js-beautify';
+import styles from '../layout.module.css';
 
 export default function MultiInputField() {
   const sampleHTML = `
@@ -139,7 +140,7 @@ export default function MultiInputField() {
           학사편입학의 경우 4학년 2학기 졸업(예정)자만 지원할 수 있습니다.
         </div>
       </div>
-      `
+      `;
 
   const formattedHtmlCode = beautify.html(sampleHTML);
 
@@ -148,11 +149,11 @@ export default function MultiInputField() {
   }, []);
   return (
     <>
-      <h1 style={{ fontSize: '23px', fontWeight: 'bold', marginBottom: '20px' }}>다중 텍스트 필드(MULTIINPUTFIELD)</h1>
+      <h1 className={styles.title}>멀티 인풋 (MultiInputField)</h1>
       <div dangerouslySetInnerHTML={{ __html: sampleHTML }}></div>
       <pre>
         <code class="html">{formattedHtmlCode}</code>
       </pre>
     </>
-  )
+  );
 }

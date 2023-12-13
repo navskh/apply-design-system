@@ -1,0 +1,171 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-family: 'NotoSansKRLarge';
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+.logo:hover {
+  background-color: rgba(222, 222, 222, 0.559);
+  transition: .5s;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.logo a:hover {
+  text-decoration: none;
+}
+
+.logo a span {
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search:focus {
+  border: 1px solid #ccc;
+}
+
+.searchInput {
+  border: 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+/* ------------------------------------------------- */
+
+.sidebar {
+  width: 250px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.menuBig {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.menuBig svg {
+  transition: transform 0.5s ease;
+}
+
+.menuBig svg[data-menu-active="true"] {
+  transform: rotate(180deg);
+  animation: rotateAnimation 0.5s ease;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+.menuBig:hover {
+  background-color: rgba(222, 222, 222, 0.559);
+}
+
+.menuList ul {
+  border-left: 1px solid #e5e7eb;
+  margin-left: 15px;
+  padding-left: 5px;
+} 
+
+.menuList li a {
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.menuList li a:hover {
+  text-decoration: none;
+  background-color: rgba(222, 222, 222, 0.559);
+  transition: .5s;
+}
+
+/* ------------------------------------------------- */
+
+.exampleTab {
+  width: 100%;
+}
+
+.exampleTab .tabs button {
+  position: relative;
+  width: 10%;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px 5px 0 0;
+  padding: 5px;
+  background-color: white;
+}
+
+.exampleTab .tabs button[data-active="true"] {
+  border-bottom: 0;
+}
+
+.exampleTab .tabs button[data-active="false"] {
+  background-color: #e5e7eb6f;
+}
+
+.exampleTab .tabs button[data-active="true"]:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 30px;
+  width: 100%;
+  height: 1px;
+  z-index: 1;
+  background-color: white;
+}
+
+.exampleTab .tabContents {
+  position: relative;
+  border: 1px solid #e5e7eb;
+  border-radius: 0 5px 5px 5px;
+  padding: 10px;
+}
+
+.exampleTab .tabContents pre {
+  margin: 0;
+}
+
+.exampleTab .copyButton {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  border: 0;
+  border-radius: 100%;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #282c34;
+}

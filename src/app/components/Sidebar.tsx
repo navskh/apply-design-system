@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import menuList from '@/types/menu';
+import styles from './components.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'; 
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState<{ [key: string]: boolean }>({});
@@ -12,21 +15,24 @@ const Sidebar = () => {
       [menuName]: !prevState[menuName],
     }));
   };
-  const openMenu = (menuName: string) => {
-    console.log(menuName);
-    setIsOpen(prevState => ({
-      ...prevState,
-      [menuName]: true,
-    }));
-  };
+  // const openMenu = (menuName: string) => {
+  //   console.log(menuName);
+  //   setIsOpen(prevState => ({
+  //     ...prevState,
+  //     [menuName]: true,
+  //   }));
+  // };
 
   return (
-    <div style={{ width: '200px', background: '#f0f0f0', padding: '20px', height: '100vh' }}>
-      <ul>
+    <div className={styles.sidebar}>
+      <ul className={styles.menuList}>
         {
           menuList.map((menu, i) => (
             <li key={i}>
-              <h1><a onClick={() => openMenu(menu.title)}>{menu.fieldName}</a></h1>
+              <div className={styles.menuBig} onClick={() => toggleMenu(menu.title)}>
+                {menu.fieldName}
+                <FontAwesomeIcon icon={faChevronDown} style={{ width: '15px' }} data-menu-active={isOpen[menu.title]} />
+              </div>
               {
                 isOpen[menu.title] && <ul>
                   {

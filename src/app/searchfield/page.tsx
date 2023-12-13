@@ -1,13 +1,13 @@
 // @ts-nocheck
-"use client";
+'use client';
 import React, { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; // 스타일 선택
 import beautify from 'js-beautify';
+import styles from '../layout.module.css';
 
 export default function SearchField() {
-  const sampleHTML =
-    `<h2 class="heading2">지망학과 - 목록형<em>*</em></h2>
+  const sampleHTML = `<h2 class="heading2">지망학과 - 목록형<em>*</em></h2>
       <div class="cell_group">
         <span class="cell_box">
           <span class="cell_search" type="ul" style="cursor:pointer">
@@ -77,7 +77,7 @@ export default function SearchField() {
 
         </div>
         <a class="close" style={{ cursor: "pointer" }}>닫기</a>
-      </div>`
+      </div>`;
 
   const formattedHtmlCode = beautify.html(sampleHTML);
 
@@ -87,11 +87,11 @@ export default function SearchField() {
 
   return (
     <>
-      <h1 style={{ fontSize: '23px', fontWeight: 'bold', marginBottom: '20px' }}>검색필드(SEARCHFIELD)</h1>
+      <h1 className={styles.title}>검색 (SearchField)</h1>
       <div dangerouslySetInnerHTML={{ __html: sampleHTML }}></div>
       <pre>
         <code class="html">{formattedHtmlCode}</code>
       </pre>
     </>
-  )
+  );
 }
