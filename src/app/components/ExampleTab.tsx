@@ -7,14 +7,14 @@ import styles from './components.module.css'; // CSS Module 사용 예시
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 
-const ExampleTab = ({ sampleHTML }) => {
+const ExampleTab = ({ sampleHTML }: { sampleHTML: string }) => {
   const formattedHtmlCode = beautify.html(sampleHTML);
   const [tabs, setTabs] = useState([
     { id: 1, text: '미리보기', active: true },
     { id: 2, text: 'HTML', active: false },
   ]);
 
-  const toggleTab = id => {
+  const toggleTab = (id: any) => {
     setTabs(
       tabs.map(tab => {
         if (tab.id === id && tab.active !== true) {

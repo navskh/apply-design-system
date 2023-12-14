@@ -4,7 +4,9 @@ import React, { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css'; // 스타일 선택
 import beautify from 'js-beautify';
-import styles from '../layout.module.css';
+import styles from '@/app/layout.module.css';
+import ExampleTab from '@/app/components/ExampleTab';
+
 
 export default function SearchField() {
   const sampleHTML = `<h2 class="heading2">지망학과 - 목록형<em>*</em></h2>
@@ -88,10 +90,7 @@ export default function SearchField() {
   return (
     <>
       <h1 className={styles.title}>검색 (SearchField)</h1>
-      <div dangerouslySetInnerHTML={{ __html: sampleHTML }}></div>
-      <pre>
-        <code class="html">{formattedHtmlCode}</code>
-      </pre>
+      <ExampleTab sampleHTML={formattedHtmlCode} />
     </>
   );
 }
