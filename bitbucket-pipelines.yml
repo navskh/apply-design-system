@@ -20,10 +20,10 @@ pipelines:
                       - IMAGE_NAME=$BITBUCKET_REPO_SLUG
                       - DOCKER_USERNAME='robot$harbor_api'
                       - DOCKER_PASSWORD='dzVqX0rONdfSSoVd88k8Z2Qc5CN2QHka'
-                      - echo ${DOCKER_PASSWORD} | docker login harbor-dev.jinhaksa.com/jinhak_dev_repo --username='robot$harbor_api' --password-stdin
+                      - echo ${DOCKER_PASSWORD} | docker login harbor-dev.jinhaksa.com/apply_dev_repo --username='robot$harbor_api' --password-stdin
                       - docker load --input "${IMAGE_NAME}.tar"
                       - IMAGE=${IMAGE_NAME}
-                      - docker tag "${IMAGE_NAME}:latest" harbor-dev.jinhaksa.com/jinhak_dev_repo/"${IMAGE_NAME}:latest"
-                      - docker push harbor-dev.jinhaksa.com/jinhak_dev_repo/"${IMAGE_NAME}:latest"
+                      - docker tag "${IMAGE_NAME}:latest" harbor-dev.jinhaksa.com/apply_dev_repo/"${IMAGE_NAME}:latest"
+                      - docker push harbor-dev.jinhaksa.com/apply_dev_repo/"${IMAGE_NAME}:latest"
                   services:
                       - docker
