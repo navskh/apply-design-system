@@ -1,5 +1,5 @@
 # Base Node.js image
-FROM node:16 AS build
+FROM node:latest AS build
 
 # Create app directory
 WORKDIR /app
