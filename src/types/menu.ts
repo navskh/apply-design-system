@@ -28,7 +28,6 @@ const menuList: ParentMenu[] = [
     new ChildMenu('COLOR', '색상', '/foundation/color'),
     new ChildMenu('TYPOGRAPHY', '타이포그래피', '/foundation/typography'),
     new ChildMenu('ICON', '아이콘', '/foundation/icon'),
-    new ChildMenu('BUTTON', '버튼', '/foundation/button'),
     new ChildMenu('GRID', '그리드', '/foundation/grid'),
     new ChildMenu('LAYOUT', '레이아웃', '/foundation/layout'),
   ]),
