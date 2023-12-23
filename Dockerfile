@@ -13,11 +13,10 @@ RUN npm install
 # Bundle app source
 FROM base AS builder
 COPY --from=dependencies /ads/node_modules ./node_modules
-COPY ./src .
-COPY ./public .
+COPY . .
 
 RUN npm run build
 # Expose port
-EXPOSE 80
+EXPOSE 3000
 # Start Nginx server
 CMD ["npm", "start"]
