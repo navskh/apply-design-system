@@ -13,8 +13,8 @@ RUN npm install
 # Bundle app source
 FROM base AS builder
 COPY --from=dependencies /ads/node_modules ./node_modules
-COPY ./src ./src
-COPY ./public ./public 
+COPY ./src .
+COPY ./public .
 
 RUN npm run build
 # Expose port
