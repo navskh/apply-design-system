@@ -2,28 +2,23 @@
 FROM node:latest AS build
 
 # Create app directory
-WORKDIR /app
+RUN mkdir /ads
+WORKDIR /ads
 
 # Install dependencies
-COPY package*.json ./
+COPY package*.json .
 RUN npm install
 
 # Bundle app source
+FROM base AS dependencies
+RUN npm install
+
+FROM base AS builder
+COPY --from=dependencies /ads/node_modules ./node_modules
 COPY . .
+
 RUN npm run build
-
-# Stage 2: Run with Nginx
-FROM nginx:alpine
-
-# Copy built assets from builder stage
-COPY --from=build /app/.next/static /usr/share/nginx/html/_next/static
-COPY --from=build /app/public /usr/share/nginx/html
-
-# Copy Nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
-
 # Expose port
-# EXPOSE 80
-
+EXPOSE 80
 # Start Nginx server
-# CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start"]
