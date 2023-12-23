@@ -6,16 +6,15 @@ RUN mkdir /ads
 WORKDIR /ads
 
 # Install dependencies
+FROM base AS dependencies
 COPY package.json .
 RUN npm install
 
 # Bundle app source
-FROM base AS dependencies
-RUN npm install
-
 FROM base AS builder
 COPY --from=dependencies /ads/node_modules ./node_modules
-COPY . .
+COPY ./src ./src
+COPY ./public ./public 
 
 RUN npm run build
 # Expose port
