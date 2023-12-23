@@ -32,11 +32,11 @@ const menuList: ParentMenu[] = [
     new ChildMenu('LAYOUT', '레이아웃', '/foundation/layout'),
   ]),
   new ParentMenu('Component', '컴포넌트', [
-    new ChildMenu('BUTTON', '버튼', '/components/button'),
-    new ChildMenu('INPUT', '인풋', '/components/input'),
-    new ChildMenu('SELECT', '셀렉트', '/components/select'),
-    new ChildMenu('CHECKBOX', '체크박스', '/components/checkbox'),
-    new ChildMenu('RADIO', '라디오', '/components/radio'),
+    new ChildMenu('BUTTON', '버튼', '/atomic/button'),
+    new ChildMenu('INPUT', '인풋', '/atomic/input'),
+    new ChildMenu('SELECT', '셀렉트', '/atomic/select'),
+    new ChildMenu('CHECKBOX', '체크박스', '/atomic/checkbox'),
+    new ChildMenu('RADIO', '라디오', '/atomic/radio'),
   ]),
   new ParentMenu('Field', '필드', [
     new ChildMenu('RADIOFIELD', '라디오', '/fields/radiofield'),
