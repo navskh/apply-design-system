@@ -6,7 +6,7 @@ RUN mkdir /ads
 WORKDIR /ads
 
 # Install dependencies
-COPY package*.json .
+COPY package.json .
 RUN npm install
 
 # Bundle app source
