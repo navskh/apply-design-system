@@ -1,5 +1,5 @@
 # Base Node.js image
-FROM node:latest AS build
+FROM node:latest AS base
 
 # Create app directory
 RUN mkdir /ads
