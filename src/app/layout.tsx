@@ -12,12 +12,6 @@ export const metadata: Metadata = {
   description: 'Apply Design System',
 };
 
-// interface Topic {
-//   id: number;
-//   title: string;
-//   body: string;
-// }
-
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html>
