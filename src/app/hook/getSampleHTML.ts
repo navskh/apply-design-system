@@ -9,6 +9,7 @@ function useSampleHTML(htmlType: string, htmlDir: string) {
   if (htmlType === 'fields') directory = `/html/fields/${FieldDirectoryType[htmlDir]}`;
   else if (htmlType === 'foundation') directory = `/html/foundation/${FoundationDirectoryType[htmlDir]}`;
   else if (htmlType === 'atomic') directory = `/html/component/${ComponentDirectoryType[htmlDir]}`;
+  else directory = `/html/${htmlType}/${htmlDir}.html`;
 
   useEffect(() => {
     fetch(directory)

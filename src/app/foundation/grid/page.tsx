@@ -3,6 +3,6 @@ import Renderer from '@/app/components/renderer';
 
 export default function Page() {
   return (
-    <Renderer title="그리드 (Grid)" />
+    <Renderer title="그리드 (Grid)" path='/foundation/grid' />
   );
 }
